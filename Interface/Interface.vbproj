@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{258FDE17-CE9B-49F6-9103-DE6B58BD2CC3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Interface.My.MyApplication</StartupObject>
+    <RootNamespace>Interface</RootNamespace>
+    <AssemblyName>Interface</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Interface.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Interface.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>IconJeu.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accueil.designer.vb">
+      <DependentUpon>Accueil.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accueil.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game.designer.vb">
+      <DependentUpon>Game.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Game.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.designer.vb">
+      <DependentUpon>Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Accueil.resx">
+      <DependentUpon>Accueil.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game.resx">
+      <DependentUpon>Game.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Moteur\Moteur.csproj">
+      <Project>{9b4a7337-fff0-4ed3-b180-4367635eb0cd}</Project>
+      <Name>Moteur</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueCross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueFlower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueLozenge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueSquare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueStar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenCross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenFlower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenLozenge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenSquare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenStar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrangeCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrangeCross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrangeFlower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrangeLozenge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrangeSquare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrangeStar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PinkCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PinkCross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PinkFlower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PinkLozenge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PinkSquare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PinkStar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedCross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedFlower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedLozenge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedSquare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedStar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YellowCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YellowCross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YellowFlower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YellowLozenge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YellowSquare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YellowStar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TitleQwirkle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddPlayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExchangeButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LessPlayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ValidationButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joueur4icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joueur3icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joueur2icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joueur1icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IconJeu.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

@@ -1,0 +1,125 @@
+﻿CALCUL DU SCORE
+----------------------------------------------
+METHODE ScoreFirstTuileLn
+
+DEBUT
+CoordonnéeX = CoordonnéeXPionDeBase
+TANT QUE CoordonnéeX - 1 Existe FAIRE
+	CoordonnéeX = CoordonnéeX - 1
+FIN TANT QUE
+RETOURNER CoordonnéeX
+FIN
+----------------------------------------------
+METHODE ScoreNbTuileLn
+
+DEBUT
+FAIRE
+	NbPion = NbPion + 1
+TANT QUE ScoreFirstTuileLn + NbPion Existe
+RETOURNER NbPion
+FIN
+----------------------------------------------
+METHODE ScoreDoubleLn
+
+DEBUT
+FAIRE
+	SI ScoreFirstTuileLn.Y - 1 Existe OU ScoreFirstTuileLn.Y + 1 Existe ALORS
+		NbDouble = NbDouble + 1
+	FIN SI
+	Avancée = Avancée + 1
+TANT QUE ScoreFirstTuileLn + Avancée Existe
+RETOURNER NbDouble
+FIN
+----------------------------------------------
+----------------------------------------------
+METHODE ScoreFirstTuileCol
+
+DEBUT
+CoordonnéeY = CoordonnéeYPionDeBase
+TANT QUE CoordonnéeY - 1 Existe FAIRE
+	CoordonnéeY = CoordonnéeY - 1
+FIN TANT QUE
+RETOURNER CoordonnéeY
+FIN
+----------------------------------------------
+METHODE ScoreNbTuileCol
+
+DEBUT
+FAIRE
+	NbPion = NbPion + 1
+TANT QUE ScoreFirstTuileCol + NbPion Existe
+RETOURNER NbPion
+FIN
+----------------------------------------------
+METHODE ScoreDoubleCol
+
+DEBUT
+FAIRE
+	SI ScoreFirstTuileCol.Y - 1 Existe OU ScoreFirstTuileCol.Y + 1 Existe ALORS
+		NbDouble = NbDouble + 1
+	FIN SI
+	Avancée = Avancée + 1
+TANT QUE ScoreFirstTuileCol + Avancée Existe
+RETOURNER NbDouble
+FIN
+----------------------------------------------
+----------------------------------------------
+----------------------------------------------
+METHODE ScoreMain
+
+DEBUT
+SI ScoreNbTuileLn > 1 ET ScoreNbTuileCol > 1 ALORS
+	Score = Score + ScoreNbTuileLn - ScoreDoubleTuile + ScoreDoubleLn * 2 + ScoreNbTuileCol - ScoreDoubleTuileCol + ScoreDoubleLn * 2 - 2
+SINON SI ScoreNbTuileLn > 1 ALORS
+	Score = Score + ScoreNbTuileLn - ScoreDoubleLn + ScoreDoubleLn * 2
+SINON SI ScoreNbTuileCol > 1 ALORS
+	Score = Score + ScoreNbTuileCol - ScoreDoubleCol + ScoreDoubleCol * 2
+FIN SI
+SI ScoreNbTuileLn = 6 ALORS
+	Score = Score + 6
+FIN SI
+SI ScoreTuileCol = 6 ALORS
+	Score = Score + 6
+FIN SI
+RETOURNER Score
+FIN
+----------------------------------------------
+----------------------------------------------
+----------------------------------------------
+TEST ScoreFirstTuileLn
+
+Placer 1 tuile -> Coordonnées de la tuile placée
+Placer 5 tuiles en ligne -> Coordonnées de la première tuile placée
+----------------------------------------------
+TEST ScoreNbTuileLn
+
+Placer 1 tuile en ligne -> 1
+Placer 5 tuiles en ligne -> 5
+----------------------------------------------
+TEST ScoreDoubleLn
+
+Placer 1 tuile -> 0
+Placer 1 tuile avec une autre sur la colonne en haut -> 1
+Placer 1 tuile avec une autre sur la colonne en bas -> 1
+Placer 5 tuiles en ligne -> 0
+Placer 5 tuiles en ligne avec une tuile sur la colonne vers le haut une tuile sur la colonne vers le bas et une tuile sur la colonne du haut et du bas pour la dernière tuile placée -> 3
+----------------------------------------------
+----------------------------------------------
+TEST ScoreFirstTuileCol
+
+Placer 1 tuile -> Coordonnées de la tuile placée
+Placer 5 tuiles en colonne -> Coordonnées de la première tuile placée
+----------------------------------------------
+TEST ScoreNbTuileCol
+
+Placer 1 tuile en colonne -> 1
+Placer 5 tuiles en colonne -> 5
+----------------------------------------------
+TEST ScoreDoubleCol
+
+Placer 1 tuile -> 0
+Placer 1 tuile avec une autre sur la ligne à droite -> 1
+Placer 1 tuile avec une autre sur la ligne à gauche -> 1
+Placer 5 tuiles en colonne -> 0
+Placer 5 tuiles en colonne avec une tuile sur la ligne vers la droite une tuile sur la ligne vers la gauche et une tuile sur la ligne de gauche et de droite pour la dernière tuile placée -> 3
+----------------------------------------------

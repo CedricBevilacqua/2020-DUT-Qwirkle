@@ -1,0 +1,217 @@
+﻿VERIFICATION DU PLACEMENT
+----------------------------------------------
+METHODE VerifCaseEmpty
+
+DEBUT
+SI CaseActuelle = Vide ALORS
+	RETOURNER Vrai
+SINON
+	RETOURNER Faux
+FIN SI
+----------------------------------------------
+METHODE VerifAroundCase
+
+DEBUT
+SI CaseActuelle.X + 1 = Vide ET CaseActuelle.X - 1 = Vide ET CaseActuelle.Y + 1 = Vide ET CaseActuelle.Y - 1 = Vide ALORS
+	RETOURNER Faux
+SINON
+	RETOURNER Vrai
+FIN SI
+----------------------------------------------
+METHODE VerifPosToAddAround
+
+DEBUT
+SI CaseActuelle.X + 1 Appartient à PosToAdd OU CaseActuelle.X - 1 Appartient à PosToAdd OU CaseActuelle.Y + 1 Appartient à PosToAdd OU CaseActuelle.Y - 1 Appartient à PosToAdd ALORS
+	RETOURNER Faux
+SINON
+	RETOURNER Vrai
+FIN SI
+----------------------------------------------
+----------------------------------------------
+METHODE VerifFormLnRight
+
+DEBUT
+FAIRE
+	Tuile suivante
+	SI FormeTuilePosée != FormeTuile ALORS
+		RETOURNER Faux
+	FIN SI
+TANT QUE (Tuile suivante existe)
+RETOURNER Vrai
+FIN
+----------------------------------------------
+METHODE VerifFormLnLeft
+
+DEBUT
+FAIRE
+	Tuile précédente
+	SI FormeTuilePosée != FormeTuile ALORS
+		RETOURNER Faux
+	FIN SI
+TANT QUE (Tuile précédente existe)
+RETOURNER Vrai
+FIN
+----------------------------------------------
+METHODE VerifFormColUp
+
+DEBUT
+FAIRE
+	Tuile suivante en haut
+	SI FormeTuilePosée != FormeTuile ALORS
+		RETOURNER Faux
+	FIN SI
+TANT QUE (Tuile en haut existe)
+RETOURNER Vrai
+FIN
+----------------------------------------------
+METHODE VerifFormColDown
+
+DEBUT
+FAIRE
+	Tuile suivante en bas
+	SI FormeTuilePosée != FormeTuile ALORS
+		RETOURNER Faux
+	FIN SI
+TANT QUE (Tuile en bas existe)
+RETOURNER Vrai
+FIN
+----------------------------------------------
+----------------------------------------------
+METHODE VerifColorLnRight
+
+DEBUT
+FAIRE
+	Tuile suivante
+	SI CouleurTuilePosée != CouleurTuile ALORS
+		RETOURNER Faux
+	FIN SI
+TANT QUE (Tuile suivante existe)
+RETOURNER Vrai
+FIN
+----------------------------------------------
+METHODE VerifColorLnLeft
+
+DEBUT
+FAIRE
+	Tuile précédente
+	SI CouleurTuilePosée != CouleurTuile ALORS
+		RETOURNER Faux
+	FIN SI
+TANT QUE (Tuile précédente existe)
+RETOURNER Vrai
+FIN
+----------------------------------------------
+METHODE VerifColorColUp
+
+DEBUT
+FAIRE
+	Tuile suivante en haut
+	SI CouleurTuilePosée != CouleurTuile ALORS
+		RETOURNER Faux
+	FIN SI
+TANT QUE (Tuile en haut existe)
+RETOURNER Vrai
+FIN
+----------------------------------------------
+METHODE VerifColorColDown
+
+DEBUT
+FAIRE
+	Tuile suivante en bas
+	SI FormeTuilePosée != FormeTuile ALORS
+		RETOURNER Faux
+	FIN SI
+TANT QUE (Tuile en bas existe)
+RETOURNER Vrai
+FIN
+----------------------------------------------
+----------------------------------------------
+----------------------------------------------
+METHODE VerifMain
+
+DEBUT
+SI Nombre de pièces sur le plateau = 0 ALORS
+	RETOURNER Vrai
+FIN SI
+SI Nombre de pièces ajoutées > 0 ALORS
+	OnTheLine = PosToAddAround
+SINON
+	OnTheLine = Vrai
+FIN SI
+SI (VerifFormLnRight ET VerifFormLnLeft ET VerifColorLnUniq) OU (VerifColorLnRight ET VerifColorLnLeft ET VerifFormLnUniq) ALORS
+	LnOK = Vrai
+FIN SI
+SI (VerifFormColUp ET VerifFormColDown ET VerifColorColUniq) OU (VerifColorColUp ET VerifColorColDown ET VerifFormColUniq) ALORS
+	ColOK = Vrai
+FIN SI
+SI LnOK ET ColOK ET OnTheLine ET VerifCaseEmpty ALORS
+	RETOURNER Vrai
+SINON
+	RETOURNER Faux
+FIN SI
+----------------------------------------------
+----------------------------------------------
+----------------------------------------------
+----------------------------------------------
+TEST VerifCaseEmpty
+
+Poser une pièce sur une case vide -> VRAI
+Poser une pièce sur cette même case -> FAUX
+----------------------------------------------
+TEST VerifAroundCase
+
+Poser une pièce sans rien sur le plateau -> FAUX
+Poser une pièce à côté d'une autre -> VRAI
+Poser une pièce à côté d'une pièce sur le côté ligne et une autre côté colonne -> VRAI
+Poser une pièce au centre d'une étoile de 4 pièces -> VRAI
+Poser une pièce décalée de 1 case vide des autres -> FAUX
+----------------------------------------------
+METHODE VerifPosToAddAround
+
+Poser une étoile de pièces qui appartiennent directement au plateau et poser une pièce au milieu -> FAUX
+Poser une étoile de pièces qui appartiennent directement au plateau dont une qui vient d'être ajoutée -> VRAI
+Poser une pièce aléatoire sans rien -> VRAI
+Poser une première pièce et une autre ailleurs -> FAUX
+----------------------------------------------
+----------------------------------------------
+TEST VerifFormLnRight
+
+Poser une ligne de formes identiques à droite -> VRAI
+Poser une ligne de formes avec une différente à droite -> FAUX
+----------------------------------------------
+TEST VerifFormLnLeft
+
+Poser une ligne de formes identiques à gauche -> VRAI
+Poser une ligne de formes avec une différente à gauche -> FAUX
+----------------------------------------------
+TEST VerifFormColUp
+
+Poser une ligne de formes identiques en haut -> VRAI
+Poser une ligne de formes avec une différente en haut -> FAUX
+----------------------------------------------
+TEST VerifFormColDown
+
+Poser une ligne de formes identiques en bas -> VRAI
+Poser une ligne de formes avec une différente en bas -> FAUX
+----------------------------------------------
+----------------------------------------------
+TEST VerifColorLnRight
+
+Poser une ligne de couleurs identiques à droite -> VRAI
+Poser une ligne de couleurs avec une différente à droite -> FAUX
+----------------------------------------------
+TEST VerifColorLnLeft
+
+Poser une ligne de couleurs identiques à gauche -> VRAI
+Poser une ligne de couleurs avec une différente à gauche -> FAUX
+----------------------------------------------
+TEST VerifColorColUp
+
+Poser une ligne de couleurs identiques en haut -> VRAI
+Poser une ligne de couleurs avec une différente en haut -> FAUX
+----------------------------------------------
+TEST VerifColorColDown
+
+Poser une ligne de couleurs identiques en bas -> VRAI
+Poser une ligne de couleurs avec une différente en bas -> FAUX
+----------------------------------------------
